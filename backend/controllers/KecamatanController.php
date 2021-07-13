@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Kecamatan;
-use backend\models\KecamataniSearch;
+use backend\models\KecamatanSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,7 +35,7 @@ class KecamatanController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new KecamataniSearch();
+        $searchModel = new KecamatanSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -67,7 +67,7 @@ class KecamatanController extends Controller
         $model = new Kecamatan();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id_kec]);
         }
 
         return $this->render('create', [
@@ -87,7 +87,7 @@ class KecamatanController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id_kec]);
         }
 
         return $this->render('update', [

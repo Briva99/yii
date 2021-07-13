@@ -17,7 +17,7 @@ class DesaSearch extends Desa
     public function rules()
     {
         return [
-            [['id', 'district_id', 'name'], 'safe'],
+            [['id_desa', 'id_kec', 'name'], 'safe'],
         ];
     }
 
@@ -56,8 +56,8 @@ class DesaSearch extends Desa
         }
 
         // grid filtering conditions
-        $query->andFilterWhere(['like', 'id', $this->id])
-            ->andFilterWhere(['like', 'district_id', $this->district_id])
+        $query->andFilterWhere(['like', 'id_desa', $this->id_desa])
+            ->andFilterWhere(['like', 'id_kec', $this->id_kec])
             ->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;

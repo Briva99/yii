@@ -7,12 +7,12 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\DesaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Desa';
-// $this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Desas';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="desa-index">
 
-    <!-- <h1><?= Html::encode($this->title) ?></h1> -->
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Create Desa', ['create'], ['class' => 'btn btn-success']) ?>
@@ -26,8 +26,8 @@ $this->title = 'Desa';
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'district_id',
+            'id_desa',
+            'id_kec',
             'name',
 
             ['class' => 'yii\grid\ActionColumn'],

@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Kabupaten;
-use backend\models\KabupateniSearch;
+use backend\models\KabupatenSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,7 +35,7 @@ class KabupatenController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new KabupateniSearch();
+        $searchModel = new KabupatenSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -67,7 +67,7 @@ class KabupatenController extends Controller
         $model = new Kabupaten();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id_kab]);
         }
 
         return $this->render('create', [
@@ -87,7 +87,7 @@ class KabupatenController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id_kab]);
         }
 
         return $this->render('update', [

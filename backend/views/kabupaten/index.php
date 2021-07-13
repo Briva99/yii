@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\KabupateniSearch */
+/* @var $searchModel backend\models\KabupatenSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Kabupaten';
+$this->title = 'Kabupatens';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="kabupaten-index">
@@ -26,8 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'province_id',
+            'id_kab',
+            'id_prov',
             'name',
 
             ['class' => 'yii\grid\ActionColumn'],

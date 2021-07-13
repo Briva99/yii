@@ -7,31 +7,30 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\Kecamatan */
 
 $this->title = $model->name;
-// $this->params['breadcrumbs'][] = ['label' => 'Kecamatans', 'url' => ['index']];
-// $this->params['breadcrumbs'][] = $this->title;
-// \yii\web\YiiAsset::register($this);
+$this->params['breadcrumbs'][] = ['label' => 'Kecamatans', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+\yii\web\YiiAsset::register($this);
 ?>
 <div class="kecamatan-view">
 
-   <!--  <h1><?= Html::encode($this->title) ?></h1> -->
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Update', ['update', 'id' => $model->id_kec], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id_kec], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a(Yii::t('app', 'Back to List'), ['index'], ['class' => 'btn btn-warning']) ?>
     </p>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'regency_id',
+            'id_kec',
+            'id_kab',
             'name',
         ],
     ]) ?>

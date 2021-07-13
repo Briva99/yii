@@ -4,12 +4,12 @@ namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Kecamatan;
+use backend\models\Kabupaten;
 
 /**
- * KecamataniSearch represents the model behind the search form of `backend\models\Kecamatan`.
+ * KabupatenSearch represents the model behind the search form of `backend\models\Kabupaten`.
  */
-class KecamataniSearch extends Kecamatan
+class KabupatenSearch extends Kabupaten
 {
     /**
      * {@inheritdoc}
@@ -17,7 +17,7 @@ class KecamataniSearch extends Kecamatan
     public function rules()
     {
         return [
-            [['id', 'regency_id', 'name'], 'safe'],
+            [['id_kab', 'id_prov', 'name'], 'safe'],
         ];
     }
 
@@ -39,7 +39,7 @@ class KecamataniSearch extends Kecamatan
      */
     public function search($params)
     {
-        $query = Kecamatan::find();
+        $query = Kabupaten::find();
 
         // add conditions that should always apply here
 
@@ -56,8 +56,8 @@ class KecamataniSearch extends Kecamatan
         }
 
         // grid filtering conditions
-        $query->andFilterWhere(['like', 'id', $this->id])
-            ->andFilterWhere(['like', 'regency_id', $this->regency_id])
+        $query->andFilterWhere(['like', 'id_kab', $this->id_kab])
+            ->andFilterWhere(['like', 'id_prov', $this->id_prov])
             ->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;

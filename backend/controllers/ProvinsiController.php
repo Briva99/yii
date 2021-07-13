@@ -67,7 +67,7 @@ class ProvinsiController extends Controller
         $model = new Provinsi();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id_prov]);
         }
 
         return $this->render('create', [
@@ -87,7 +87,7 @@ class ProvinsiController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id_prov]);
         }
 
         return $this->render('update', [

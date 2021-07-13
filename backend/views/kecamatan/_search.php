@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\KecamataniSearch */
+/* @var $model backend\models\KecamatanSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -15,9 +15,9 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?= $form->field($model, 'id_kec') ?>
 
-    <?= $form->field($model, 'regency_id') ?>
+    <?= $form->field($model, 'id_kab') ?>
 
     <?= $form->field($model, 'name') ?>
 

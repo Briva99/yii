@@ -4,15 +4,15 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\KecamataniSearch */
+/* @var $searchModel backend\models\KecamatanSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Kecamatan';
-// $this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Kecamatans';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="kecamatan-index">
 
-  <!--   <h1><?= Html::encode($this->title) ?></h1> -->
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Create Kecamatan', ['create'], ['class' => 'btn btn-success']) ?>
@@ -26,8 +26,8 @@ $this->title = 'Kecamatan';
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'regency_id',
+            'id_kec',
+            'id_kab',
             'name',
 
             ['class' => 'yii\grid\ActionColumn'],

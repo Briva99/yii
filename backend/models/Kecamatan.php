@@ -7,12 +7,12 @@ use Yii;
 /**
  * This is the model class for table "kecamatan".
  *
- * @property string $id
- * @property string $regency_id
+ * @property string $id_kec
+ * @property string $id_kab
  * @property string $name
  *
  * @property Desa[] $desas
- * @property Kabupaten $regency
+ * @property Kabupaten $kab
  */
 class Kecamatan extends \yii\db\ActiveRecord
 {
@@ -30,12 +30,12 @@ class Kecamatan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'regency_id', 'name'], 'required'],
-            [['id'], 'string', 'max' => 7],
-            [['regency_id'], 'string', 'max' => 4],
+            [['id_kec', 'id_kab', 'name'], 'required'],
+            [['id_kec'], 'string', 'max' => 7],
+            [['id_kab'], 'string', 'max' => 4],
             [['name'], 'string', 'max' => 255],
-            [['id'], 'unique'],
-            [['regency_id'], 'exist', 'skipOnError' => true, 'targetClass' => Kabupaten::className(), 'targetAttribute' => ['regency_id' => 'id']],
+            [['id_kec'], 'unique'],
+            [['id_kab'], 'exist', 'skipOnError' => true, 'targetClass' => Kabupaten::className(), 'targetAttribute' => ['id_kab' => 'id_kab']],
         ];
     }
 
@@ -45,8 +45,8 @@ class Kecamatan extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'regency_id' => 'Kabupaten ID',
+            'id_kec' => 'Id Kec',
+            'id_kab' => 'Id Kab',
             'name' => 'Name Kecamatan',
         ];
     }
@@ -58,16 +58,16 @@ class Kecamatan extends \yii\db\ActiveRecord
      */
     public function getDesas()
     {
-        return $this->hasMany(Desa::className(), ['district_id' => 'id']);
+        return $this->hasMany(Desa::className(), ['id_kec' => 'id_kec']);
     }
 
     /**
-     * Gets query for [[Regency]].
+     * Gets query for [[Kab]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getRegency()
+    public function getKab()
     {
-        return $this->hasOne(Kabupaten::className(), ['id' => 'regency_id']);
+        return $this->hasOne(Kabupaten::className(), ['id_kab' => 'id_kab']);
     }
 }

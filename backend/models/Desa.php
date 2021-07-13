@@ -7,11 +7,11 @@ use Yii;
 /**
  * This is the model class for table "desa".
  *
- * @property string $id
- * @property string $district_id
+ * @property string $id_desa
+ * @property string $id_kec
  * @property string $name
  *
- * @property Kecamatan $district
+ * @property Kecamatan $kec
  */
 class Desa extends \yii\db\ActiveRecord
 {
@@ -29,12 +29,12 @@ class Desa extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'district_id', 'name'], 'required'],
-            [['id'], 'string', 'max' => 10],
-            [['district_id'], 'string', 'max' => 7],
+            [['id_desa', 'id_kec', 'name'], 'required'],
+            [['id_desa'], 'string', 'max' => 10],
+            [['id_kec'], 'string', 'max' => 7],
             [['name'], 'string', 'max' => 255],
-            [['id'], 'unique'],
-            [['district_id'], 'exist', 'skipOnError' => true, 'targetClass' => Kecamatan::className(), 'targetAttribute' => ['district_id' => 'id']],
+            [['id_desa'], 'unique'],
+            [['id_kec'], 'exist', 'skipOnError' => true, 'targetClass' => Kecamatan::className(), 'targetAttribute' => ['id_kec' => 'id_kec']],
         ];
     }
 
@@ -44,19 +44,19 @@ class Desa extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'district_id' => 'Kecamatan ID',
+            'id_desa' => 'Id Desa',
+            'id_kec' => 'Id Kec',
             'name' => 'Name Desa',
         ];
     }
 
     /**
-     * Gets query for [[District]].
+     * Gets query for [[Kec]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getDistrict()
+    public function getKec()
     {
-        return $this->hasOne(Kecamatan::className(), ['id' => 'district_id']);
+        return $this->hasOne(Kecamatan::className(), ['id_kec' => 'id_kec']);
     }
 }

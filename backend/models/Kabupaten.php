@@ -7,11 +7,11 @@ use Yii;
 /**
  * This is the model class for table "kabupaten".
  *
- * @property string $id
- * @property string $province_id
+ * @property string $id_kab
+ * @property string $id_prov
  * @property string $name
  *
- * @property Provinsi $province
+ * @property Provinsi $prov
  * @property Kecamatan[] $kecamatans
  */
 class Kabupaten extends \yii\db\ActiveRecord
@@ -30,12 +30,12 @@ class Kabupaten extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'province_id', 'name'], 'required'],
-            [['id'], 'string', 'max' => 4],
-            [['province_id'], 'string', 'max' => 2],
+            [['id_kab', 'id_prov', 'name'], 'required'],
+            [['id_kab'], 'string', 'max' => 4],
+            [['id_prov'], 'string', 'max' => 2],
             [['name'], 'string', 'max' => 255],
-            [['id'], 'unique'],
-            [['province_id'], 'exist', 'skipOnError' => true, 'targetClass' => Provinsi::className(), 'targetAttribute' => ['province_id' => 'id']],
+            [['id_kab'], 'unique'],
+            [['id_prov'], 'exist', 'skipOnError' => true, 'targetClass' => Provinsi::className(), 'targetAttribute' => ['id_prov' => 'id_prov']],
         ];
     }
 
@@ -45,20 +45,20 @@ class Kabupaten extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'province_id' => 'Province ID',
+            'id_kab' => 'Id Kab',
+            'id_prov' => 'Id Prov',
             'name' => 'Name Kabupaten',
         ];
     }
 
     /**
-     * Gets query for [[Province]].
+     * Gets query for [[Prov]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getProvince()
+    public function getProv()
     {
-        return $this->hasOne(Provinsi::className(), ['id' => 'province_id']);
+        return $this->hasOne(Provinsi::className(), ['id_prov' => 'id_prov']);
     }
 
     /**
@@ -68,6 +68,6 @@ class Kabupaten extends \yii\db\ActiveRecord
      */
     public function getKecamatans()
     {
-        return $this->hasMany(Kecamatan::className(), ['regency_id' => 'id']);
+        return $this->hasMany(Kecamatan::className(), ['id_kab' => 'id_kab']);
     }
 }

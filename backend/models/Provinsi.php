@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "provinsi".
  *
- * @property string $id
+ * @property string $id_prov
  * @property string $name
  *
  * @property Kabupaten[] $kabupatens
@@ -28,10 +28,10 @@ class Provinsi extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'name'], 'required'],
-            [['id'], 'string', 'max' => 2],
+            [['id_prov', 'name'], 'required'],
+            [['id_prov'], 'string', 'max' => 2],
             [['name'], 'string', 'max' => 255],
-            [['id'], 'unique'],
+            [['id_prov'], 'unique'],
         ];
     }
 
@@ -41,7 +41,7 @@ class Provinsi extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id_prov' => 'Id Prov',
             'name' => 'Name Provinsi',
         ];
     }
@@ -53,6 +53,6 @@ class Provinsi extends \yii\db\ActiveRecord
      */
     public function getKabupatens()
     {
-        return $this->hasMany(Kabupaten::className(), ['province_id' => 'id']);
+        return $this->hasMany(Kabupaten::className(), ['id_prov' => 'id_prov']);
     }
 }

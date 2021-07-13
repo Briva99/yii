@@ -7,12 +7,12 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\ProvinsiSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Provinsi';
-
+$this->title = 'Provinsis';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="provinsi-index">
 
-  
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Create Provinsi', ['create'], ['class' => 'btn btn-success']) ?>
@@ -26,7 +26,7 @@ $this->title = 'Provinsi';
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            'id_prov',
             'name',
 
             ['class' => 'yii\grid\ActionColumn'],

@@ -17,7 +17,7 @@ class ProvinsiSearch extends Provinsi
     public function rules()
     {
         return [
-            [['id', 'name'], 'safe'],
+            [['id_prov', 'name'], 'safe'],
         ];
     }
 
@@ -56,7 +56,7 @@ class ProvinsiSearch extends Provinsi
         }
 
         // grid filtering conditions
-        $query->andFilterWhere(['like', 'id', $this->id])
+        $query->andFilterWhere(['like', 'id_prov', $this->id_prov])
             ->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
