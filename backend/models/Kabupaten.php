@@ -47,7 +47,7 @@ class Kabupaten extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'province_id' => 'Province ID',
-            'name' => 'Name',
+            'name' => 'Name Kabupaten',
         ];
     }
 

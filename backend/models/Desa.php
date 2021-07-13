@@ -45,8 +45,8 @@ class Desa extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'district_id' => 'District ID',
-            'name' => 'Name',
+            'district_id' => 'Kecamatan ID',
+            'name' => 'Name Desa',
         ];
     }
 

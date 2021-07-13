@@ -42,7 +42,7 @@ class Provinsi extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Name Provinsi',
         ];
     }
 

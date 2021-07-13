@@ -46,8 +46,8 @@ class Kecamatan extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'regency_id' => 'Regency ID',
-            'name' => 'Name',
+            'regency_id' => 'Kabupaten ID',
+            'name' => 'Name Kecamatan',
         ];
     }
 
